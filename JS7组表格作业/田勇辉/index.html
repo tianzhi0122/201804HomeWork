@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <meta name="keywords" content=""/>
+    <meta name="description" content=""/>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <link rel="icon" href=""/>
+    <link rel="stylesheet" href="">
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #box{
+            width: 960px;
+            height: 100%;
+            margin: 20px auto;
+        }
+        #box .header a{
+            margin-left: 20px;
+            background: #999999;
+            color: black;
+            font-size: 16px;
+            text-decoration: none;
+        }
+        #box .middle {
+            width: 960px;
+            height: 100%;
+            margin-top: 40px;
+        }
+        #box .middle .list{
+            width: 100%;
+            height: 53px;
+            margin-bottom: 30px;
+            overflow: hidden;
+        }
+
+        #box .middle p{
+            float: left;
+            margin-left: 10px;
+        }
+        #box .middle .list p:nth-child(1){
+            color: red;
+        }
+        #box .middle .list li{
+            overflow: hidden;
+            list-style: none;
+            margin-left: 150px;
+        }
+        #box .middle .list li input{
+            float: left;
+            display: block;
+            width: 320px;
+            height: 21px;
+            border: 1px solid black;
+        }
+
+        #box .middle .list li span{
+            float: left;
+            width: 100%;
+            height: 20px;
+
+            float: left;
+            color: #999;
+            font-size: 12px;
+          display: none;
+        }
+        #box .middle .list li .boxa{
+            float: left;
+        }
+        #box .middle .list li i{
+            float: left;
+
+            margin-left: 20px;
+        }
+        #box .middle .list li .wran_dpass{
+            width: 100px;
+            height: 22px;
+            background: red;
+            text-align: center;
+            color: black;
+
+        }
+        #box .middle .list li .wran_pass{
+            width: 100px;
+            height: 22px;
+            background: greenyellow;
+            text-align: center;
+            color: #fff;
+      }
+        #box .floor a{
+            margin-left: 10px;
+            color:black;
+            font-size: 20px;
+            text-decoration: none;
+        }
+        #box .floor button{
+            display: block;
+            font-size: 18px;
+            margin-top: 20px;
+            background: lightgreen;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div id="box">
+        <!--头部没写-->
+        <div class="header">
+            <a href="javascript:;">注册字母邮箱</a>
+            <a href="javascript:;">注册手机号码邮箱</a>
+            <a href="javascript:;">注册VIP邮箱</a>
+        </div>
+        <!--表格-->
+        <div class="middle">
+            <ul class="list">
+                <p>*</p>
+                <p>邮件地址</p>
+            <li>
+                <input type="email" autofocus pattern="([.a-zA-Z0-9_-]){2,10}@([a-zA-Z0-9_-]){2,10}(.([a-zA-Z0-9]){2,}){1,4}$"  required>
+                <i class="boxa"></i>
+                <span>邮件地址必须是正确的邮箱格式</span>
+            </li>
+            </ul>
+            <ul class="list">
+                <p>*</p>
+                <p>密码</p>
+                <li>
+                    <input type="text" required pattern="\w{6,16}">
+                    <i class="boxa"></i>
+                    <span>6~16个字符，区分大小写</span>
+                </li>
+            </ul>
+            <ul class="list">
+                <p>*</p>
+                <p>确认密码</p>
+                <li>
+                    <input type="text" required pattern="\w{6,16}">
+                    <i class="boxa"></i>
+                    <span>请再次填写密码</span>
+                </li>
+            </ul>
+            <ul class="list">
+                <p>*</p>
+                <p>手机号码</p>
+                <li>
+                    <input type="text" required pattern="^1[3578]\d{9}$">
+                    <i class="boxa"></i>
+                    <span>忘记密码时，可以通过该手机号码快速找回密码</span>
+                </li>
+            </ul>
+            <ul class="list">
+                <p>*</p>
+                <p>验证码</p>
+                <li>
+                    <input type="text" required pattern="^1[3578]\d{9}$">
+                    <i class="boxa"></i>
+                    <span>请填写图片中的字符，不区分大小写</span>
+                </li>
+            </ul>
+            <ul class="list">
+                <p>*</p>
+                <p>短信验证码</p>
+                <li>
+                    <input type="text" required pattern="\w{4}">
+                    <i class="boxa"></i>
+                    <span>请查收手机短信，并填写短信中的验证码</span>
+                </li>
+            </ul>
+        </div>
+        <div class="floor">
+            <input type="checkbox"><a href="javascript:;">同意"服务条款"和"隐私权相关政策"</a>
+            <button>立即提交</button>
+        </div>
+
+    </div>
+</body>
+</html>
+<script>
+    let box=document.getElementById("box");
+    let middle=box.getElementsByTagName("middle");
+    let oList=box.getElementsByTagName("list");
+    let input=box.getElementsByTagName("input");
+    let span=box.getElementsByTagName("span");
+
+
+
+    /*获取焦点让透明度为1*/
+    for (let i = 0; i < input.length; i++) {
+        input[i].onfocus=function () {
+              span[i].style.display="block";
+            };
+        input[i].onblur=function () {
+            span[i].style.display="none";
+            if(this.validity.valid){
+             this.nextElementSibling.className="boxa wran_pass";
+             this.nextElementSibling.innerHTML="√";
+         }else{
+             this.nextElementSibling.className="boxa wran_dpass";
+             this.nextElementSibling.innerHTML="×";
+           }
+        }
+         };
+
+
+
+
+
+
+
+    
+</script>

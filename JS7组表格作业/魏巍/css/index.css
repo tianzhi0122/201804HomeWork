@@ -1,0 +1,129 @@
+.main{
+    width: 1000px;
+    height: auto;
+    margin: 0 auto;
+}
+
+#regMain .open{
+    padding: 10px 48px;
+    font-size: 14px;
+    line-height: 40px;
+    text-align: center;
+    background:green;
+    border-radius: 5px;
+}
+
+#tabsUl{
+    text-align: center;
+    margin: 40px auto;
+}
+
+.name4 img{
+    vertical-align: middle;
+}
+
+
+#regMain i{
+    color: red;
+    padding-right:5px;
+}
+
+#tabsUl li{
+    padding: 10px 48px;
+    text-align: center;
+    display: inline;
+    background: #f3f5f8;
+    border: 1px solid #c4c4c4;
+    border-radius: 5px;
+}
+
+#tabsUl li:nth-child(1){
+    background: #2b7dd1;
+
+}
+
+#tabsUl li a{
+    color: black;
+}
+
+.tips_span{
+    display: block;
+    margin: 10px 0 20px 350px;
+    font-size: 12px;
+    color: #bfbfbf;
+
+}
+
+#regMain .impt{
+    float: left;
+    width:30%;
+    padding-right: 20px;
+    line-height: 30px;
+    text-align: right;
+    vertical-align: middle;
+}
+
+#regMain .ipt{
+    margin-left: 30px;
+    vertical-align: middle;
+    width: 240px;
+    height:30px;
+    font-size: 12px;
+    border: 1px solid #ccc;
+    box-shadow: none;
+    border-radius: 5px;
+}
+
+
+
+.switchvCode{
+    display: block;
+    margin-left: 600px;
+    font-size: 10px;
+}
+
+.freeCode{
+    margin-left:350px;
+    padding: 8px 30px;
+    font-size: 14px;
+    line-height: 40px;
+    text-align: center;
+    background:#f0f0f0;
+    color:#4c4b4b;
+    border-radius: 5px;
+    border: 1px solid #c4c4c4;
+}
+
+.name5{
+    margin-top: 20px;
+}
+
+.choice{
+    margin-left: 350px;
+    font-size: 10px;
+}
+
+.choice a{
+    color: #1d9fd3;
+}
+
+
+
+
+
+
+/*注册按钮*/
+#regMain .last{
+    padding: 40px 0 60px 0;
+}
+
+#regMain .open{
+    margin-left: 350px;
+    padding: 10px 48px;
+    font-size: 14px;
+    line-height: 40px;
+    text-align: center;
+    background:green;
+    color:#fff;
+    border-radius: 5px;
+}

@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <meta name="keywords" content=""/>
+    <meta name="description" content=""/>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <link rel="icon" href=""/>
+    <link rel="stylesheet" href="">
+    <style>
+        body,html{
+            margin: 0;
+            padding: 0;
+        }
+        i{
+            font-style: normal;
+        }
+        #form-context{
+            display: block;
+            width: 700px;
+            margin-left: 500px;
+            margin-top: 10px;
+            overflow: hidden;
+            line-height: 14px;
+        }
+        .box{
+            margin-left: 50px;
+        }
+        #form-context h2{
+            margin-left: 90px;
+        }
+        .context{
+            overflow: hidden;
+            position: relative;
+        }
+        .context h3{
+            width: 70px;
+            margin-right: 20px;
+            font-size: 14px;
+            text-align: center;
+            display: inline-block;
+        }
+        .context p{
+            font-size: 10px;
+            margin-left: 90px;
+            opacity: 0.5;
+        }
+        .context .gre{
+            display: none;
+            color: green;
+        }
+        .context .re{
+            display: none;
+            color: red;
+        }
+        .context p#bl{
+            display: block;
+        }
+        .context p#bl1{
+            position: relative;
+            display: none;
+            color: red;
+            opacity: 1;
+        }
+        .context p#bl2{
+            position: relative;
+            display: none;
+            color: green;
+            opacity: 1;
+        }
+        #agree{
+            font-style: normal;
+            font-size: 16px;
+            display: inline-block;
+            margin-left: 10px;
+        }
+        #midAgr{
+            position: absolute;
+            top: 3px;
+            left: 15px;
+            font-size: 16px;
+            margin-left: 20px;
+            color: black;
+            display: none;
+        }
+        #noAgr{
+            position: absolute;
+            top: 3px;
+            left: 15px;
+            font-size: 16px;
+            margin-left: 20px;
+            color: red;
+            display: none;
+        }
+        #sub{
+            text-align: center;
+            width: 100px;
+            height: 30px;
+            line-height: 30px;
+            margin-left: 150px;
+            background-color: green;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+<div id="form-context">
+    <div class="box">
+        <h2>注册邮箱</h2>
+        <div class="context">
+            <h3>邮件地址</h3>
+            <input type="email" pattern="^\w{6,16}@[a-z1-9]+\.[a-z]{2,4}$" required>
+            <p>6~18个字符，可使用字母、数字、下划线，需以字母开头</p>
+            <p class="gre">邮箱可用</p>
+            <p class="re">格式错误</p>
+        </div>
+        <div class="context">
+            <h3>密码</h3>
+            <input type="password" pattern="(^[\w\.]{6,18}$)" name="password" required>
+            <p>6~16个字符，区分大小写</p>
+            <p class="gre">密码可用</p>
+            <p class="re">格式错误</p>
+        </div>
+        <div class="context">
+            <h3>确认密码</h3>
+            <input type="password" pattern="" name="passcopy" required>
+            <p>请再次填写密码</p>
+            <p class="gre">密码与上次一致</p>
+            <p class="re">格式错误</p>
+        </div>
+        <div class="context">
+            <h3>手机号码</h3>
+            <input type="tel" pattern="^1\d{10}$" required>
+            <p id="bl">忘记密码时，可通过该手机号快速找回密码</p>
+            <p id="bl2" class="gre">手机验证通过</p>
+            <p id="bl1">请填写正确的手机号码</p>
+        </div>
+        <div class="context">
+            <h3>验证码</h3>
+            <input type="text" pattern="\d{4}" required>
+            <p>填写图片中的字符，不区分大小写</p>
+            <p class="gre">验证通过</p>
+            <p class="re">格式错误</p>
+        </div>
+        <div class="context">
+            <h3>短信验证码</h3>
+            <input type="text" pattern="\d{4}" required>
+            <p>请查收手机短信，并填写短信中的验证码</p>
+            <p class="gre">验证通过</p>
+            <p class="re">格式错误</p>
+        </div>
+        <div class="context">
+            <input type="checkbox" required>
+            <i id="agree">同意服务条款</i>
+            <i id="midAgr">同意服务条款</i>
+            <i id="noAgr">同意服务条款</i>
+        </div>
+    </div>
+    <input id="sub" type="submit" value="立即注册">
+    </input>
+</div>
+</body>
+<html>
+<script>
+    let form=document.getElementById("form-context");
+    let inputList=form.getElementsByTagName("input");
+    //inputList=[...inputList];
+    let sub=document.getElementById("sub");
+    for (let i=0;i<inputList.length-1;i++) {
+        inputList[i].checking=false;//记录输入内容的是否正确
+
+        inputList[i].onfocus = function () {
+            this.nextElementSibling.style.opacity = 1;
+        };
+
+        inputList[i].onblur = function () {
+            if(inputList[i].name==="passcopy"){
+                let reg=new RegExp(inputList[i-1].pattern,"g");
+                inputList[i].pattern=inputList[i-1].value.toString().replace(reg,($0,$1)=>{
+                    return $1;
+                })
+            }
+
+            if (i !== inputList.length - 2) {
+                //如果是其他的input
+                this.nextElementSibling.style.opacity = 0.5;
+                    if (this.validity.valid && this.value !== "") {
+                        //如果满足正则且内容不为空
+                        this.checking = true;
+                        this.nextElementSibling.style.display = "none";
+                        this.nextElementSibling.nextElementSibling.style.display = "block";
+                        this.nextElementSibling.nextElementSibling.nextElementSibling.style.display = "none";
+                    }else if((!this.validity.valid || this.value !== "")){
+                        this.nextElementSibling.style.display = "none";
+                        this.nextElementSibling.nextElementSibling.style.display = "none";
+                        this.nextElementSibling.nextElementSibling.nextElementSibling.style.display = "block";
+                    }
+                } else {
+                //如果是勾选的input
+                if (inputList[i].checked === true) {
+                    this.checking = true;
+                }
+            }
+        }
+    }
+
+
+    sub.onclick=function () {
+        this.check=true;
+        for (let i=0;i<inputList.length-1;i++) {
+            if (inputList[i].checking===false){
+                this.check=false;
+                break;
+            }
+        }
+        if (this.check){
+            this.value="提交成功";
+            this.style.backgroundColor="green";
+            sucess();
+        }else{
+            this.value="提交失败";
+            this.style.backgroundColor="red";
+            fail();
+        }
+    }
+
+    function sucess() {
+        for (let i=0;i<inputList.length-1;i++){
+            inputList[i].nextElementSibling.style.display = "none";
+            inputList[i].nextElementSibling.nextElementSibling.style.display = "block";
+            inputList[i].nextElementSibling.nextElementSibling.nextElementSibling.style.display = "none";
+        }
+    }
+
+    function fail() {
+        for (let i=0;i<inputList.length-1;i++){
+            if(inputList[i].checking===false){
+                inputList[i].nextElementSibling.style.display = "none";
+                inputList[i].nextElementSibling.nextElementSibling.style.display = "none";
+                inputList[i].nextElementSibling.nextElementSibling.nextElementSibling.style.display = "block";
+            }
+        }
+    }
+
+
+
+
+
+
+</script>

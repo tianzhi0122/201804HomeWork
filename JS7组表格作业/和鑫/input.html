@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!--<link rel="stylesheet" href="reset.css" type="text/css">-->
+    <link rel="stylesheet" href="input.css" type="text/css">
+</head>
+<body>
+
+
+<div id="input" class="center">
+    <div>
+        <ul class="btn">
+            <li><a>注册字母邮箱</a></li>
+            <li><a>注册手机号码邮箱</a></li>
+            <li><a>注册VIP邮箱</a></li>
+        </ul>
+    </div>
+
+    <ul class="register">
+        <li id="li1">
+            <span><i>*</i>邮件地址</span>
+            <input type="text" placeholder="建议用手机号码注册" id="email" value=""> @
+            <select name="" id="">
+                <option value ="163">163.com</option>
+                <option value ="126">126.com</option>
+                <option value="yeah">yeah.net</option>
+            </select>
+            <p id="p1">6~18个字符，可使用字母、数字、下划线，需以字母开头</p>
+
+        </li>
+        <li id="li2">
+            <span><i>*</i>密码</span>
+            <input type="text" class="long" value="" id="input2">
+            <p id="p2">6~16个字符，区分大小写</p>
+        </li>
+        <li id="li3">
+            <span><i>*</i>确认密码</span>
+            <input type="text" class="long" value="" id="input3">
+            <p id="p3">请再次填写密码</p>
+        </li>
+        <li id="li4">
+            <span><i>*</i>手机号码</span>
+            <input type="text" class="long" value="" id="input4">
+            <p id="p4">忘记密码时，可以通过该手机号码快速找回密码</p>
+        </li>
+        <li id="li5">
+            <span><i>*</i>验证码</span>
+            <input type="text" value="" id="input5">
+            <img src="1.png" alt="">
+            <p id="p5">请填写图片中的字符，不区分大小写</p>
+            <button id="btn1">免费获取验证码</button>
+        </li>
+
+        <li id="li6">
+            <span><i>*</i>短信验证码</span>
+            <input type="text" class="long" value="" id="input6">
+            <p>请查收手机短信，并填写短信中的验证码</p>
+        </li>
+        <input type="checkbox" class="check" checked="checked">
+        <b>同意"服务条款"和"隐私权相关政策"</b>
+
+        <a href="" id="oA">立即注册</a>
+    </ul>
+
+
+</div>
+
+
+</body>
+</html>
+<script src="input.js"></script>

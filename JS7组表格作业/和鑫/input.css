@@ -1,0 +1,126 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+ul,li{
+    list-style: none;
+}
+
+
+.center{
+    width: 1000px;
+    margin: 50px auto;
+}
+#input div{
+    margin: 30px auto;
+    text-align: center;
+}
+#input div ul{
+    width: 400px;
+    display: inline-block;
+}
+#input div .btn li a{
+    float: left;
+    width: 130px;
+    height: 30px;
+    font-size: 16px;
+    text-align: center;
+    line-height: 30px;
+    background-color: #d6d6d6;
+    cursor: pointer;
+}
+#input div .btn li a:hover{
+    background-color: #999999;
+}
+
+.register{
+
+    margin: 0 auto;
+    width: 600px;
+}
+.register li{
+    display: inline-block;
+    width: 600px;
+    line-height: 40px;
+    height: 40px;
+}
+.register li span{
+    display: inline-block;
+    width: 130px;
+    text-align: right;
+}
+.register li span i{
+    color: red;
+}
+
+.register li p{
+    font-size: 14px;
+    text-align: center;
+    line-height: 20px;
+    color: #999999;
+}
+.register li input{
+    width: 200px;
+    height: 25px;
+    color: #7b7b7b;
+    border: 1px solid #999999;
+}
+
+.register li input:hover{
+    border-color:#000
+}
+
+
+.register li .long{
+    width: 350px;
+    height: 25px;
+}
+.register li img{
+    width: 100px;
+    height: 40px;
+}
+.register li button{
+    margin: 10px 0 30px 150px;
+    line-height: 30px;
+    text-align: center;
+    font-weight: bold;
+    display: inline-block;
+}
+.register li select{
+    width: 120px;
+    height: 24px;
+}
+.register b{
+    font-weight: normal;
+    display: inline-block;
+    text-align: center;
+    margin: 30px 50px 30px 10px;
+    font-size: 14px;
+}
+.register a{
+    background-color: #1d8007;
+    color: white;
+    display: block;
+    width: 100px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    margin-left: 150px;
+}
+
+.register .check{
+    display: inline-block;
+    margin-left: 140px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
